@@ -1,22 +1,26 @@
-<div class="banner">Make a stock trade</div>
+<div class="banner"><h1>Make a stock trade</h1></div>
 <div class="wrapper">
 
     <form class="main-form">
         <div class="text">
-            <input type="text" placeholder="Enter symbol">
-            <input type="text" placeholder="Enter amount">
+            <input type="text" placeholder="Enter symbol" [(ngModel)]="symbol">
+            <input type="text" placeholder="Enter amount" [(ngModel)]="amount">
             
         </div>
     <div class="buttonOne">
-        <button>Shares</button>
-        <button>Dollars</button>
+        <button [ngClass]="{buttonOneSelected: dollarsVsShares}" (click)="switchFormat('Shares',true)">Shares</button>
+        <button  [ngClass]="{buttonOneSelected: dollarsVsShares === false}"  (click)="switchFormat('Dollars',false)">Dollars</button>
         
     </div>
     <div class="buttonTwo">
-        <button>Buy</button>
-        <button>Sell</button>
+        <button  [ngClass]="{buttonTwoSelected: transaction === 'Buying'}" (click)="onSelect('Buying')">Buy</button>
+        <button  [ngClass]="{buttonTwoSelected: transaction === 'Selling'}" (click)="onSelect('Selling')">Sell</button>
         
     </div>
     
     </form>
+</div>
+<div class="final-form" *ngIf="finalForm">
+    <h2>{{transaction}} {{amount}} {{format}} of {{symbol}}</h2>
+    <button type="submit"></button>
 </div>
