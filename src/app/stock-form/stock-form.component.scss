@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.banner{
+    @include center;
+    width: 100vw;
+    height: 5vh;
+
+}
+
+.wrapper {
+    @include center;
+    width: 100vw;
+    height: 10vh;
+    margin-top: 20px;
+}
+
+.main-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: space-between;
+
+    flex-direction: column;
+   width: 40vw;
+   height: 100%;
+}
+input{
+    width: 10rem;
+    height: 1.5rem;
+    margin:  10px;
+}
+button{
+    width: 4rem;
+    height: 2rem;
+    margin:  10px;
+}
