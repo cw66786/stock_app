@@ -3,8 +3,8 @@
 
     <form class="main-form">
         <div class="text">
-            <input type="text" placeholder="Enter symbol" [(ngModel)]="symbol">
-            <input type="text" placeholder="Enter amount" [(ngModel)]="amount">
+            <input type="text" placeholder="Enter symbol" [(ngModel)]="this.symbol">
+            <input type="number" min="1"    placeholder="Enter amount" [(ngModel)]="this.amount">
             
         </div>
     <div class="buttonOne">
@@ -22,5 +22,6 @@
 </div>
 <div class="final-form" *ngIf="finalForm">
     <h2>{{transaction}} {{amount}} {{format}} of {{symbol}}</h2>
-    <button type="submit"></button>
+    <button type="onSubmit">Submit</button>
 </div>
+  
