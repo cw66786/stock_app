@@ -3,8 +3,8 @@
 
     <form class="main-form">
         <div class="text">
-            <input type="text" placeholder="Enter symbol" [(ngModel)]="this.symbol">
-            <input type="number" min="1"    placeholder="Enter amount" [(ngModel)]="this.amount">
+            <input type="text" placeholder="Enter symbol" [(ngModel)]="symbol" name="symbol">
+            <input type="number" min="1"    placeholder="Enter amount" [(ngModel)]="amount" name="amount">
             
         </div>
     <div class="buttonOne">
@@ -12,7 +12,7 @@
         <button  [ngClass]="{buttonOneSelected: dollarsVsShares === false}"  (click)="switchFormat('Dollars',false)">Dollars</button>
         
     </div>
-    <div class="buttonTwo">
+    <div class="buttonTwo" >
         <button  [ngClass]="{buttonTwoSelected: transaction === 'Buying'}" (click)="onSelect('Buying')">Buy</button>
         <button  [ngClass]="{buttonTwoSelected: transaction === 'Selling'}" (click)="onSelect('Selling')">Sell</button>
         
@@ -20,7 +20,7 @@
     
     </form>
 </div>
-<div class="final-form" *ngIf="finalForm">
+<div class="final-form" *ngIf="finalForm && this.symbol && this.amount">
     <h2>{{transaction}} {{amount}} {{format}} of {{symbol}}</h2>
     <button type="onSubmit">Submit</button>
 </div>
